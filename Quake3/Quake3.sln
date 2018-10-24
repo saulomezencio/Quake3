@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quake3", "Quake3\Quake3.csproj", "{E15B4942-059B-4A57-9F24-8BDD3ED31943}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quake3.Tests", "Quake3.Tests\Quake3.Tests.csproj", "{D9EBE768-7A1A-42A6-B54E-B3F645087BCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E15B4942-059B-4A57-9F24-8BDD3ED31943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15B4942-059B-4A57-9F24-8BDD3ED31943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15B4942-059B-4A57-9F24-8BDD3ED31943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15B4942-059B-4A57-9F24-8BDD3ED31943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EBE768-7A1A-42A6-B54E-B3F645087BCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EBE768-7A1A-42A6-B54E-B3F645087BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EBE768-7A1A-42A6-B54E-B3F645087BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EBE768-7A1A-42A6-B54E-B3F645087BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C8965B4-85D4-42AA-9542-B428FF12C7F8}
+	EndGlobalSection
+EndGlobal
