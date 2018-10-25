@@ -24,13 +24,15 @@ namespace Quake3.Controllers
         {
             try
             {
+                GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 //Criando o entidade Game
                 var reader = new GameReader();
 
                 //Lendo o Arquivo de Log do Game Quake 3
                 var games = reader.LerArquivo();
-                var jsonGames = JsonConvert.SerializeObject(games, Formatting.None);
-                return Ok(jsonGames);
+                //var jsonGames = JsonConvert.SerializeObject(games, Formatting.None);
+
+                return Ok(games);
             }
             //Retorno em caso de erro
             catch (Exception ex)
