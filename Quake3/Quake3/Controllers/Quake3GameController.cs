@@ -32,6 +32,7 @@ namespace Quake3.Controllers
                 var jsonGames = JsonConvert.SerializeObject(games, Formatting.None);
                 return Ok(jsonGames);
             }
+            //Retorno em caso de erro
             catch (Exception ex)
             {
                 return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "An error has occurred." + ex.Message));

@@ -12,9 +12,13 @@ namespace Quake3.Infrastructure
 {
     public class GameReader
     {
+        /// <summary>
+        /// Função para leitura do aquivo quake3
+        /// </summary>
+        /// <returns></returns>
         public List<Game> LerArquivo()
         {
-            var caminho = ConfigurationManager.AppSettings["ArquivoLog"];
+            var caminho = ConfigurationManager.AppSettings["ArquivoLog"];//Buscando o valor do caminho do arquivo de log do quake 3 no arquivo de configuração(Webconfig)
             var pathToFiles = HttpContext.Current.Server.MapPath(caminho);
             var actionsGames = new Regex("(InitGame|ClientConnect|ClientUserinfoChanged|Kill)");
             var games = new List<Game>();
@@ -31,18 +35,22 @@ namespace Quake3.Infrastructure
 
                     switch (action.Value)
                     {
+                        //Iniciando o Game
                         case "InitGame":
                             game += 1;
-                            currentGame = MappingGame(games, game);
+                            currentGame = MapeandoGame(games, game);
                             break;
+                        //Player Contectado
                         case "ClientConnect":
-                            MappingPlayes(currentGame, row);
+                            MapeandoPlayes(currentGame, row);
                             break;
+                        //Alterando nome
                         case "ClientUserinfoChanged":
-                            MappingChangedPlayerName(currentGame, row);
+                            MapeandoAlteracaoNomeDoPlayer(currentGame, row);
                             break;
+                        //morte
                         case "Kill":
-                            MappingKillPlayer(currentGame, row);
+                            MapeandoKillPlayer(currentGame, row);
                             break;
                         default:
                             break;
@@ -52,7 +60,7 @@ namespace Quake3.Infrastructure
 
             return games;
         }
-        private Game MappingGame(List<Game> games, int id)
+        private Game MapeandoGame(List<Game> games, int id)
         {
             Game newGame = new Game();
             newGame.Id = id;
@@ -60,7 +68,7 @@ namespace Quake3.Infrastructure
 
             return newGame;
         }
-        private void MappingPlayes(Game currentGame, string row)
+        private void MapeandoPlayes(Game currentGame, string row)
         {
             const string findText = " ClientConnect: ";
 
@@ -69,7 +77,7 @@ namespace Quake3.Infrastructure
 
             currentGame.Add(new Player(id));
         }
-        private void MappingChangedPlayerName(Game currentGame, string row)
+        private void MapeandoAlteracaoNomeDoPlayer(Game currentGame, string row)
         {
             const string findText = " ClientUserinfoChanged: ";
 
@@ -81,7 +89,7 @@ namespace Quake3.Infrastructure
 
             currentGame.AlterarNome(new Player(id), name);
         }
-        private void MappingKillPlayer(Game currentGame, string row)
+        private void MapeandoKillPlayer(Game currentGame, string row)
         {
             const string findText = " Kill: ";
 
